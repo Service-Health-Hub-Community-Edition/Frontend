@@ -1,0 +1,114 @@
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #E01A76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+button:focus {
+    outline: none;
+}
+
+.container {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+h1._1UbRd {
+    font-size: 20px;
+}
+
+.waffle-black-onhover:hover{
+    background: #000000;
+}
+
+.shh-app {
+    display: flex;
+    height: 100vh;
+}
+
+.shh-app-container {
+    display: flex;
+    flex: 1 1 0%;
+    flex-flow: column nowrap;
+    place-content: flex-start;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.shh-header-root {
+    display: flex;
+    flex-grow: 0;
+    height: 50px;
+    background-color: #282c34;
+    color: #ffffff;
+}
+
+.shh-header-nav-root {
+    height: 48px;
+    align-items: center;
+    width: calc(100vw - 16px);
+}
+
+.shh-header-nav-container {
+    display: flex;
+    flex-grow: 1;
+    flex-flow: row nowrap;
+    place-content: flex-start;
+    align-items: stretch;
+    overflow: visible;
+}
+
+.shh-header-nav-root-no-side-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.shh-header-nav-32 {
+    display: flex;
+    flex: 0 1 auto;
+    width: 32px;
+    justify-content: center;
+}
+
+.shh-header-nav-fullWidth {
+    display: flex;
+    flex: 1 1 auto;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.shh-content-root {
+    display: flex;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.shh-content-container {
+    display: flex;
+    flex-grow: 1;
+    flex-flow: row nowrap;
+    place-content: flex-start;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.shh-content-menu {
+    display: inline-block;
+    flex: 0 0 auto;
+    z-index: 1000;
+}
+
+.shh-content-main-content {
+    flex-grow: 1;
+    overflow: auto;
+    margin: 12px;
+}

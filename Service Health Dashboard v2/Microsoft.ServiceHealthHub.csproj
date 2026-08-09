@@ -1,0 +1,280 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>true</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+    <RootNamespace>Service_Health_Dashboard_v2</RootNamespace>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Core" Version="1.40.0" />
+    <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.4.0" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.15.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.AzureAD.UI" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.OData.NewtonsoftJson" Version="8.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.16" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.5" />
+    <PackageReference Include="Microsoft.Graph" Version="5.56.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.61.3" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="1.9.1" />
+    <PackageReference Include="Microsoft.Kiota.Abstractions" Version="1.22.0" />
+    <PackageReference Include="System.IO.FileSystem.AccessControl" Version="4.7.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="5.3.0" />
+    <PackageReference Include="Microsoft.TeamFoundationServer.Client" Version="16.170.0" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Services.Client" Version="16.170.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.ServiceModel.Syndication" Version="8.0.0" />
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\api\tags.tsx" />
+    <None Remove="ClientApp\src\api\viewpoint.tsx" />
+    <None Remove="ClientApp\src\auth\AccessTokenHelper.tsx" />
+    <None Remove="ClientApp\src\auth\azure-authentication-component.tsx" />
+    <None Remove="ClientApp\src\auth\azure-authentication-config.ts" />
+    <None Remove="ClientApp\src\auth\azure-authentication-context.ts" />
+    <None Remove="ClientApp\src\components\AccessDenied.tsx" />
+    <None Remove="ClientApp\src\components\AccessGate.tsx" />
+    <None Remove="ClientApp\src\components\admin\AdminLayout.tsx" />
+    <None Remove="ClientApp\src\components\admin\applicationSettings\TagDefinitions.tsx" />
+    <None Remove="ClientApp\src\components\admin\Home.tsx" />
+    <None Remove="ClientApp\src\components\admin\jobSettings\JobHistory.tsx" />
+    <None Remove="ClientApp\src\components\admin\jobSettings\JobSettings.tsx" />
+    <None Remove="ClientApp\src\components\admin\jobSettings\JobSettingsEditor.tsx" />
+    <None Remove="ClientApp\src\components\admin\jobSettings\JobStatistics.tsx" />
+    <None Remove="ClientApp\src\components\admin\jsonConfigEditor\ConfigEditor.tsx" />
+    <None Remove="ClientApp\src\components\admin\Mapping.tsx" />
+    <None Remove="ClientApp\src\components\admin\NavAdmin.tsx" />
+    <None Remove="ClientApp\src\components\admin\NotificationTemplates.tsx" />
+    <None Remove="ClientApp\src\components\admin\Routing.tsx" />
+    <None Remove="ClientApp\src\components\admin\taskManager\Mapping.tsx" />
+    <None Remove="ClientApp\src\components\AlertMessage.tsx" />
+    <None Remove="ClientApp\src\components\AuditLog.tsx" />
+    <None Remove="ClientApp\src\components\azure\dashboards\elements\AzureUpdateDetails.tsx" />
+    <None Remove="ClientApp\src\components\azure\dashboards\elements\IncidentDetails.tsx" />
+    <None Remove="ClientApp\src\components\azure\incidents\ServiceHealth.tsx" />
+    <None Remove="ClientApp\src\components\cards\ActiveEventsCard.tsx" />
+    <None Remove="ClientApp\src\components\cards\IncidentStatisticsCard.tsx" />
+    <None Remove="ClientApp\src\components\cards\ServiceStateCard.tsx" />
+    <None Remove="ClientApp\src\components\cards\UpcomingChangesCard.tsx" />
+    <None Remove="ClientApp\src\components\Dashboard.tsx" />
+    <None Remove="ClientApp\src\components\DiffViewer.tsx" />
+    <None Remove="ClientApp\src\components\file.tsx" />
+    <None Remove="ClientApp\src\components\Filter.tsx" />
+    <None Remove="ClientApp\src\components\GlobalState.tsx" />
+    <None Remove="ClientApp\src\components\IncidentCalendar.tsx" />
+    <None Remove="ClientApp\src\components\IncidentDetails.tsx" />
+    <None Remove="ClientApp\src\components\IncidentReports.tsx" />
+    <None Remove="ClientApp\src\components\InfoCard.tsx" />
+    <None Remove="ClientApp\src\components\IServiceStatistics.tsx" />
+    <None Remove="ClientApp\src\components\Items.tsx" />
+    <None Remove="ClientApp\src\components\LicenseDetails.tsx" />
+    <None Remove="ClientApp\src\components\LicenseReport.tsx" />
+    <None Remove="ClientApp\src\components\MessageDetails.tsx" />
+    <None Remove="ClientApp\src\components\Messages.tsx" />
+    <None Remove="ClientApp\src\components\microsoft365\dashboards\elements\D365PPReleaseDetails.tsx" />
+    <None Remove="ClientApp\src\components\microsoft365\dashboards\elements\IncidentStatisticsGraph.tsx" />
+    <None Remove="ClientApp\src\components\microsoft365\dashboards\elements\IServiceStatistics.tsx" />
+    <None Remove="ClientApp\src\components\microsoft365\dashboards\elements\MonthlyActiveUsersGraph.tsx" />
+    <None Remove="ClientApp\src\components\microsoft365\dashboards\elements\PublicMessageDetails.tsx" />
+    <None Remove="ClientApp\src\components\microsoft365\dashboards\Home.tsx" />
+    <None Remove="ClientApp\src\components\microsoft365\dashboards\Incidents.tsx" />
+    <None Remove="ClientApp\src\components\microsoft365\dashboards\PublicAnnouncements.tsx" />
+    <None Remove="ClientApp\src\components\microsoft365\endpoints\EndpointList.tsx" />
+    <None Remove="ClientApp\src\components\microsoft365\NavM365.tsx" />
+    <None Remove="ClientApp\src\components\Notifications.tsx" />
+    <None Remove="ClientApp\src\components\reports\ServiceIncidentReport.tsx" />
+    <None Remove="ClientApp\src\components\reports\ServiceReports.tsx" />
+    <None Remove="ClientApp\src\components\RoadmapTimeline.tsx" />
+    <None Remove="ClientApp\src\components\ServiceNameComponent.tsx" />
+    <None Remove="ClientApp\src\components\Settings.tsx" />
+    <None Remove="ClientApp\src\components\StatisticsTileComponent.tsx" />
+    <None Remove="ClientApp\src\components\TagComponent.tsx" />
+    <None Remove="ClientApp\src\components\TestComponent.tsx" />
+    <None Remove="ClientApp\src\components\UserProfile.tsx" />
+    <None Remove="ClientApp\src\Configure.tsx" />
+    <None Remove="ClientApp\src\detectTeams.tsx" />
+    <None Remove="ClientApp\src\Version.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\App.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\applicationSettings\ApplicationConfig.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\customActions\Actions.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\customActions\Components.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\IconSelector.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\jobSettings\Components.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\jobSettings\JobDetailsList.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\jobSettings\JobHistoryPage.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\notifications\ConditionEditor.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\notifications\Connectors.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\notifications\Entities.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\notifications\NotificationsConfig.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\notifications\NotificationsRouting.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\notifications\RouteEditor.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\search\SearchConfig.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\admin\taskManager\Entities.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\auth\PrivateRoute.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\azure\dashboards\elements\ActiveIncidentsGraph.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\azure\dashboards\elements\Incidents.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\azure\dashboards\elements\Updates.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\azure\updates\AzureUpdates.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\azure\health\ServiceHealth.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\azure\Layout.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\microsoft365\d365pp\D365PPReleasesPage.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\microsoft365\dashboards\elements\ActiveIncidentsGraph.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\microsoft365\dashboards\elements\D365PPReleases.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\microsoft365\dashboards\elements\News.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\microsoft365\dashboards\elements\PublicIncidentDetails.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\microsoft365\dashboards\elements\PublicIncidents.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\microsoft365\dashboards\elements\PublicNews.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\microsoft365\dashboards\elements\ServiceStatisticsGraph.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\microsoft365\dashboards\elements\WeeklyGraph.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\microsoft365\ServiceDetails.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\NavMenu.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\translation\translator.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\components\IncidentDetails.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Update="ClientApp\src\api\tags.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\admin\AdminLayout.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\admin\Home.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\admin\jobSettings\JobHistory.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\admin\jobSettings\JobSettings.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\admin\jobSettings\JobStatistics.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\admin\jsonConfigEditor\ConfigEditor.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\admin\Mapping.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\admin\NavAdmin.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\admin\NotificationTemplates.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\admin\Routing.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\admin\taskManager\Mapping.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\azure\dashboards\Home.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\azure\NavAzure.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\CustomAction.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\LicenseDetails.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\LicenseReport.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\MessageDetails.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\microsoft365\dashboards\elements\PublicMessageDetails.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\microsoft365\dashboards\Home.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\microsoft365\dashboards\PublicAnnouncements.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\microsoft365\NavM365.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\RoadmapDetails.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\Settings.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\components\TagComponent.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\components\azure\incidents\" />
+    <Folder Include="ClientApp\src\types\" />
+    <Folder Include="Teams Manifest\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.ServiceHealthHub.Core\Microsoft.ServiceHealthHub.Core.csproj" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install --force" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build --force" />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)build\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>

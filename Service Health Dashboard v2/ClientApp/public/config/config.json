@@ -1,0 +1,7 @@
+{
+  "auth": {
+    "clientId": "6dcc5193-ec6b-4000-865c-71d644cc1bde",
+    "authority": "https://login.microsoftonline.com/d80901ae-aeab-40dc-9780-d06b530af9e7",
+    "redirectUri": "/"
+  }
+}
