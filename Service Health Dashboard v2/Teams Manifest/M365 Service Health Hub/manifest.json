@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.11/MicrosoftTeams.schema.json",
+  "version": "1.2.0",
+  "manifestVersion": "1.11",
+  "id": "{appid}",
+  "packageName": "com.package.name",
+  "name": {
+    "short": "M365 Service Health Hub",
+    "full": ""
+  },
+  "developer": {
+    "name": "Teams App, Inc.",
+    "websiteUrl": "{baseUrl}",
+    "privacyUrl": "{baseUrl}/index.html#/privacy",
+    "termsOfUseUrl": "{baseUrl}/index.html#/termsofuse"
+  },
+  "description": {
+    "short": "Short description of the App.",
+    "full": "Full description of the App."
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "accentColor": "#FFFFFF",
+  "staticTabs": [
+    {
+      "entityId": "index",
+      "name": "M365 Services Hub",
+      "contentUrl": "{baseUrl}",
+      "websiteUrl": "{baseUrl}",
+      "scopes": [
+        "personal"
+      ]
+    },
+    {
+      "entityId": "about",
+      "scopes": [
+        "personal"
+      ]
+    }
+  ],
+  "validDomains": [
+    "*.microsoftonline.com"
+  ],
+  "webApplicationInfo": {
+    "id": "{appClientId}",
+    "resource": "{webApplicationInfoResource eg. api://baseurl/appClientId}"
+  }
+}

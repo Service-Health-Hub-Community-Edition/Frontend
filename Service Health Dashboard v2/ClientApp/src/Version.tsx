@@ -1,0 +1,1 @@
+﻿export const clientVersion: string = "2.0.2411.3";

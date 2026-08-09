@@ -1,0 +1,10 @@
+﻿.quickLinksBox {
+    padding-top: 8px;
+    padding-bottom: 24px;
+    min-width: 300px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(247, 247, 247);
+}

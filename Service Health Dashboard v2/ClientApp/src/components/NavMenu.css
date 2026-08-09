@@ -1,0 +1,47 @@
+﻿.navbar-brand {
+    font-family: SegoeUI-SemiBold-final,Segoe UI Semibold,SegoeUI-Regular-final,Segoe UI,Segoe UI Web (West European),Segoe,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Tahoma,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+.waffleMenu {
+    width: 16px;
+    height: 20px;
+    fill: rgb(255 255 255);
+    padding-top: 4px;
+    cursor: pointer;
+}
+
+.waffleMenuBlack {
+    width: 16px;
+    height: 20px;
+    fill: rgb(25 25 25);
+    padding-top: 4px;
+    cursor: pointer;
+}
+
+.optionsGear {
+    width: 24px;
+    height: 24px;
+    fill: rgb(255 255 255);
+    cursor: pointer;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
